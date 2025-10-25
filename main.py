@@ -51,7 +51,7 @@ async def do_ping(host: str, pinged, non_pinged, sem: asyncio.Semaphore):
     """Асинхронный пинг одного хоста с ограничением семафора"""
     async with sem:
         try:
-            delay = await aioping.ping(host, timeout=5) * 1000
+            delay = await aioping.ping(host, timeout=1) * 1000
             pinged.append(host)
             print(f"Ping {host} response in {delay:.2f} ms")
         except TimeoutError:
